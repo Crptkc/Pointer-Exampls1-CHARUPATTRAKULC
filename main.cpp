@@ -4,34 +4,34 @@
 
 using namespace std;
 
-int main(void){
-  char *pa, *pb, i, temp;
-  char a[10000] ;
-  cout<<"Input String: ";
-  cin>>a;
-  int SIZE = strlen(a);
-  
-  pa = &a[0];
-  cout<< "Original: ";
-  for (int i = 0; i < SIZE; i++, pa++){
-    cout<<setw(3)<<*pa<<" ";
-    //cout<<pa<<endl;
-  }
-    cout<<endl;
+void printOut(char *str, int length)
+{
+	for (int i=0;i<length;i++)
+	{
+		cout<<str[i];
+	}
+	cout<<endl;
+}
 
-    pa = &a[0]; pb = &a[SIZE - 1];
-    cout<<"Reverse: ";
-    for (int i = 0; i < SIZE / 2; i++) {
-        temp = *pa;
-        *pa = *pb;
-        *pb = temp;
-        pa++; pb--;
-    }
-    pa = &a[0];
-    for (int i = 0; i < SIZE; i++,pa++){
-        cout<<setw(3)<<*pa<<" ";
-        //cout<<pa<<endl;
-    }
-    
-return 0;
+int main()
+{
+	char str[1000];
+	cout<<"Insert   String: ";
+	cin>>str;
+
+	int length = strlen(str);
+
+	cout <<"Original String: ";
+	printOut(str,length);
+
+	char *pa=&str[0],*pb=&str[length-1];
+	for (int i=0;i<length/2;i++,pa++,pb--)
+	{
+		char temp=*pb;
+		*pb=*pa;
+		*pa=temp;
+	}
+
+	cout<<"Reversed String: ";
+	printOut(str,length);
 }

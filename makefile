@@ -1,4 +1,4 @@
-DEPS= test
+DEPS= Reverse
 compile: main.cpp 
 	 g++ main.cpp -o $(DEPS)
 
